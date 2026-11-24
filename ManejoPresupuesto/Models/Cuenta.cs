@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ManejoPresupuesto.Validaciones;
 
 namespace ManejoPresupuesto.Models
 {
@@ -8,7 +9,7 @@ namespace ManejoPresupuesto.Models
 
         [Required(ErrorMessage ="El campo {0} es requerido")]
         [StringLength(maximumLength: 50)]
-        [PrimeraLetraMayuscula]
+        //[PrimeraLetraMayuscula]
         public string Nombre { get; set; }
 
         [Display(Name = "Tipo Cuenta")]
