@@ -24,12 +24,14 @@ namespace ManejoPresupuesto.Controllers
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
             var cuentasConTipoCuenta = await repositorioCuentas.Buscar(usuarioId);
             var modelo = cuentasConTipoCuenta
-                .GroupBy(x => TipoCuenta)
+                .GroupBy(x => x.TipoCuenta)
                 .Select(grupo => new IndiceCuentasViewModel{
                     TipoCuenta = grupo.Key,
                     Cuentas = grupo.AsEnumerable()
 
                 }).ToList();
+
+            return View(modelo);
         }
 
         [HttpGet]
